@@ -23,28 +23,36 @@ function getRecords() {
   var ids = Server.getIds();
   console.log(ids);
   var allTheRecords = []; // getting each corresponding record is an async operation
-
+  var count = 0;
   // you can get a SINGLE record by calling Server.getRecord(recordId, callbackFunction)
   // callbackFunction takes 2 parameters, error and data
   // invocation as follows
   ids.forEach(function(recordId) {
     Server.getRecord(recordId, function(error, data) {
+      count++;
       if (error) {
         console.log(error);
+        if (count === ids.length) {
+          processRecords(allTheRecords);
+        }
+        return error;
       } else {
         console.log(data);
         allTheRecords.push(data);
+        if (count === ids.length) {
+          processRecords(allTheRecords);
+        }
       }
     });
 
     // if the fetch is unsuccessful the callback function is invoked with the error only
     // if the fetch is successful the callback is invoked with error variable set to null, and data variable will hold the response (i.e. the record you wanted to retrieve)
   });
-
+  console.log(allTheRecords);
   // you need to make sure the list is not rendered until we have the records...but need to allow for any fetch errors or app will hang
   // i.e. a record you request might not exist - how would you allow for this?
   // when you have the records, call processRecords as follows
-  processRecords(allTheRecords);
+  // processRecords(allTheRecords);
 }
 
 function processRecords(records) {

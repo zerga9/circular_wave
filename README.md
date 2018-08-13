@@ -8,6 +8,8 @@
 - console.log(ids)shows random selection ids in array
 - recordId is not defined: make it an item of the array ids and console.log error or data. This gives the records in the console
 - AllTheRecords is not defined at getRecords: Make it an array where you push the data to if no error
+- No display records, because AllTheRecords is being called before filling up with records(you can see it after console.log(AllTheRecords)): make a count var to check if all records are in AllTheRecords
+- Places records are shown, but undefined.
 
 For this assessment we'll need you to fix some broken code.
 
