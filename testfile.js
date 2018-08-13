@@ -60,7 +60,7 @@ function processRecords(records) {
   var sortedRecords = sortRecords(records);
   var html = "";
   var tr;
-  sortedRecords.forEach(function(index, value, array) {
+  sortedRecords.forEach(function(value) {
     tr = "";
     tr +=
       "<tr>" +
@@ -90,8 +90,10 @@ function processRecords(records) {
 }
 
 function sortRecords(records) {
-  var sorted = records;
   // sort results in date order, most recent last
+  var sorted = records.sort(function(a, b) {
+    return a.date - b.date;
+  });
 
   return sorted;
 }
@@ -101,8 +103,8 @@ function addTotals(records) {
   var paid = 0;
 
   records.forEach(function(value, index) {
-    hours += value.hoursWorked;
-    paid += value.hoursWorked * value.hourlyRate;
+    hours += parseInt(value.hoursWorked);
+    paid += parseInt(value.hoursWorked) * value.hourlyRate;
   });
 
   document.getElementById("totals-annot").innerHTML = "TOTALS";

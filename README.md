@@ -9,9 +9,10 @@
 - recordId is not defined: make it an item of the array ids and console.log error or data. This gives the records in the console
 - AllTheRecords is not defined at getRecords: Make it an array where you push the data to if no error
 - No display records, because AllTheRecords is being called before filling up with records(you can see it after console.log(AllTheRecords)): make a count var to check if all records are in AllTheRecords
-- Places records are shown, but undefined.
-
-For this assessment we'll need you to fix some broken code.
+- Places records are shown, but undefined: get rid of undefined by getting rid of index and array in forEach. All records showing, but not sorted yet.
+-
+- Date totals not given correctly. After console.logging you can see there are some numbers in string: parseInt, now working correctly
+  For this assessment we'll need you to fix some broken code.
 
 ## What we are looking for
 
