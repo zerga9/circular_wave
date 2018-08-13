@@ -19,14 +19,24 @@ function toggleButton(loaded) {
 function getRecords() {
   // getting the IDs of the records to fetch is a synchronous operation
   // you don't need to change this call, it should return the IDs
-  var ids = Server.getIds();
 
-  // getting each corresponding record is an async operation
+  var ids = Server.getIds();
+  console.log(ids);
+  var allTheRecords = []; // getting each corresponding record is an async operation
 
   // you can get a SINGLE record by calling Server.getRecord(recordId, callbackFunction)
   // callbackFunction takes 2 parameters, error and data
   // invocation as follows
-  Server.getRecord(recordId, function(error, data) {
+  ids.forEach(function(recordId) {
+    Server.getRecord(recordId, function(error, data) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(data);
+        allTheRecords.push(data);
+      }
+    });
+
     // if the fetch is unsuccessful the callback function is invoked with the error only
     // if the fetch is successful the callback is invoked with error variable set to null, and data variable will hold the response (i.e. the record you wanted to retrieve)
   });

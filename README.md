@@ -4,7 +4,10 @@
 
 - I am led by the error-messages of the Chrome DevTools console
 - Change var buttonHandler in function and get rid of space in argument
-- Change this into btn for innerHTML and classList.toggle
+- Change this into btn for innerHTML and classList.toggle: The button changes now into loading... when clicking!
+- console.log(ids)shows random selection ids in array
+- recordId is not defined: make it an item of the array ids and console.log error or data. This gives the records in the console
+- AllTheRecords is not defined at getRecords: Make it an array where you push the data to if no error
 
 For this assessment we'll need you to fix some broken code.
 
