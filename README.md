@@ -10,9 +10,10 @@
 - AllTheRecords is not defined at getRecords: Make it an array where you push the data to if no error
 - No display records, because AllTheRecords is being called before filling up with records(you can see it after console.log(AllTheRecords)): make a count var to check if all records are in AllTheRecords
 - Places records are shown, but undefined: get rid of undefined by getting rid of index and array in forEach. All records showing, but not sorted yet.
--
+- Sorting records with .sort and parseInt(). Put "0" in date with single days. Ugly code, but works
 - Date totals not given correctly. After console.logging you can see there are some numbers in string: parseInt, now working correctly
-  For this assessment we'll need you to fix some broken code.
+- For this assessment we'll need you to fix some broken code.
+- Refactoring count-check in function, deleting comments
 
 ## What we are looking for
 
