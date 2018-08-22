@@ -3,17 +3,30 @@
 ## Approach
 
 - I am led by the error-messages of the Chrome DevTools console
-- Change var buttonHandler in function and get rid of space in argument
-- Change this into btn for innerHTML and classList.toggle: The button changes now into loading... when clicking!
+
+- Change var buttonHandler in function(because otherwise it is calling giving the anonymous function, not calling the function to be executed) and get rid of space in argument processRecords(All theRecords)
+
+- Change this into btn(because this doesn't refer to btn and in strict mode, if this was not defined by the execution context, it remains undefined) for innerHTML and classList.toggle: The button changes now into loading... when clicking!
+
 - console.log(ids)shows random selection ids in array
+
 - recordId is not defined: make it an item of the array ids and console.log error or data. This gives the records in the console
+
 - AllTheRecords is not defined at getRecords: Make it an array where you push the data to if no error
+
 - No display records, because AllTheRecords is being called before filling up with records(you can see it after console.log(AllTheRecords)): make a count var to check if all records are in AllTheRecords
+
 - Places records are shown, but undefined: get rid of undefined by getting rid of index and array in forEach. All records showing, but not sorted yet.
+
 - Sorting records with .sort and parseInt(). Put "0" in date with single days. Ugly code, but works
-- Date totals not given correctly. After console.logging you can see there are some numbers in string: parseInt, now working correctly
+
+- The totals not given correctly. After console.logging you can see there are some numbers in string: parseInt, now working correctly
+
+- Refactoring count-check in function, deleting comments and console.logs
+
+## Assignment
+
 - For this assessment we'll need you to fix some broken code.
-- Refactoring count-check in function, deleting comments
 
 ## What we are looking for
 

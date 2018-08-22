@@ -16,8 +16,6 @@ function toggleButton(loaded) {
 
 function getRecords() {
 	var ids = Server.getIds();
-	console.log(ids);
-
 	var allTheRecords = [];
 	var count = 0;
 
@@ -30,13 +28,11 @@ function getRecords() {
 		Server.getRecord(recordId, function(error, data) {
 			count++;
 			if (error) {
-				console.log(error);
 				allRecords();
 				return error;
 			} else {
+				console.log(data);
 				allTheRecords.push(data);
-				console.log(allTheRecords);
-				console.log(error);
 				allRecords();
 			}
 		});
@@ -78,24 +74,29 @@ function processRecords(records) {
 }
 
 function sortRecords(records) {
+	records.forEach(function(record) {
+		record.date[1] == "/"
+			? (record.date = "0".concat(record.date))
+			: (record.date = record.date);
+		record.date[4] == "/"
+			? (record.date = record.date.replace("/", "/0"))
+			: (record.date = record.date);
+	});
 	var sorted = records.sort(function(a, b) {
-		a.date.length == 8 ? (a.date = "0".concat(a.date)) : (a.date = a.date);
-		b.date.length == 8 ? (b.date = "0".concat(b.date)) : (b.date = b.date);
-		var aa = parseInt(
-			a.date
-				.split("/")
-				.reverse()
-				.join(""),
-			10
-		);
+		// a.date.length == 8 ? (a.date = "0".concat(a.date)) : (a.date = a.date);
+		// b.date.length == 8 ? (b.date = "0".concat(b.date)) : (b.date = b.date);
+		// a.date[4] == "/" ? (a.date = a.date.replace("/", "/0")) : (a.date = a.date);
+		// b.date[4] == "/" ? (b.date = b.date.replace("/", "/0")) : (b.date = b.date);
+		var aa = a.date
+			.split("/")
+			.reverse()
+			.join("");
 
-		var bb = parseInt(
-			b.date
-				.split("/")
-				.reverse()
-				.join(""),
-			10
-		);
+		var bb = b.date
+			.split("/")
+			.reverse()
+			.join("");
+
 		return aa - bb;
 	});
 
